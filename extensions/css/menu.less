@@ -1,0 +1,116 @@
+.menu{
+    position: absolute;
+    left: 0;
+    top: 0px;
+    bottom: 0;
+    padding: 75px 0 0;
+    width: 360px;
+    height: 100%;
+    overflow: auto;
+    #csspl-font > .DinNxtReg;
+    background: -webkit-linear-gradient(63deg, #151515 5px, transparent 5px) 0 5px, -webkit-linear-gradient(-117deg, #151515 5px, transparent 5px) 10px 0px, -webkit-linear-gradient(63deg, #222 5px, transparent 5px) 0px 10px, -webkit-linear-gradient(-117deg, #222 5px, transparent 5px) 10px 5px, -webkit-linear-gradient(0deg, #1B1B1B 10px, transparent 10px), -webkit-linear-gradient(#1D1D1D 25%, #1A1A1A 25%, #1A1A1A 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+    -webkit-box-shadow: 2px 0px 5px 0px rgba(0,0,0,.5);
+    z-index: 2;
+    &:before{
+        content: 'SinnerSchrader';
+        position: absolute;
+        top: 33px;
+        left: 20px;
+        font-size: 39px;
+        color: @csspl-white;
+        text-transform: uppercase;
+        #csspl-font > .DinNxtBold;
+    }
+    li{
+        width: 350px;
+        height: 60px;
+        overflow: hidden;
+        display: block;
+        background: #fff;
+        -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        margin-bottom: 4px;
+        border-left: 10px solid #000;
+        vertical-align: bottom;
+        #csspl-transition > .generic(300ms, all, ease-in-out);
+        cursor: pointer;
+        &:last-child{
+            margin-bottom: 0px;
+        }
+        &.large{
+            height: 130px;
+            .icon{
+                line-height: 90px;
+            }
+            &:hover,
+            &.active{
+                .icon{
+                    font-size: 35px;
+                }
+                .main{
+                    font-size: 14px;
+                }
+            }
+        }
+        &:hover,
+        &.active{
+            border-color: @csspl-orange;
+            background: #000;
+            .icon{
+                color: @csspl-orange;
+                text-shadow: 0px 0px 1px @csspl-orange;
+                font-size: 27px;
+            }
+            .main{
+                color: @csspl-orange;
+                font-size: 22px;
+            }
+            .sub{
+                color: #fff;
+                font-size: 19px;
+            }
+        }
+        .wrap{
+            text-align: left;
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #333;
+            position:relative;
+        }
+        .icon{
+            font-family: 'WebSymbolsRegular', cursive;
+            font-size: 20px;
+            text-shadow: 0px 0px 1px #333;
+            line-height: 65px;
+            position: absolute;
+            width: 60px;
+            left: 10px;
+            text-align: center;
+            #csspl-transition > .generic(300ms, all, linear);
+        }
+        .content{
+            position: absolute;
+            left: 80px;
+            width: 370px;
+            height: 60px;
+            top: 20px;
+        }
+        .main,
+        .sub{
+            max-width: 260px;
+        }
+        .main{
+            font-size: 21px;
+            #csspl-transition > .generic(300ms, all, linear);
+        }
+        .sub{
+            font-size: 14px;
+            color: #666;
+            #csspl-transition > .generic(300ms, all, linear);
+        }
+    }
+}
+
+
