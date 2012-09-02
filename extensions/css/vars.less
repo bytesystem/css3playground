@@ -1,0 +1,663 @@
+//base typo colors
+@csspl-black:#000;
+@csspl-white:#fff;
+
+//background border colors
+@csspl-body:#f2f2f2;
+
+//hover
+@csspl-black-hover: lighten(@csspl-black, 20%);
+@csspl-white-hover: darken(@csspl-white, 20%);
+
+//grid
+@csspl-headerHeight:100px;
+@csspl-footerHeight:100px;
+
+@csspl-pageTopPadding:20px;
+@csspl-MinPageWidth:980px;
+@csspl-MaxPageWidth:1440px;
+@csspl-base-fontsize:11px;
+@csspl-base-lineheight:16px;
+@csspl-paragraph-margin:18px;
+
+@csspl-image-path:"../../images";
+@csspl-font-path:"../../fonts";
+
+// box ------------------------------------------------------------------------
+
+.csspl-box(@val){
+  -webkit-box-sizing:@val;
+  -moz-box-sizing:@val;
+  -ms-box-sizing:@val;
+  -o-box-sizing:@val;
+  box-sizing:@val;
+}
+
+#csspl-box{
+  .border(){
+    .csspl-box(border-box);
+  }
+  .content(){
+    .csspl-box(content-box);
+  }
+}
+
+// appearance -----------------------------------------------------------------
+
+.csspl-appearance(@val:none){
+  -webkit-appearance: @val;
+  -moz-appearance: @val;
+  -ms-appearance: @val;
+  -o-appearance: @val;
+  appearance: @val;
+}
+
+#csspl-appearance{
+  .textfield(){
+    .csspl-appearance(textfield);
+  }
+  .none(){
+    .csspl-appearance();
+  }
+  
+  .no-search(){
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      #csspl-appearance > .none;
+    }
+    &::-moz-search-cancel-button,
+    &::-moz-search-decoration,
+    &::-moz-search-results-button,
+    &::-moz-search-results-decoration {
+      #csspl-appearance > .none;
+    }
+    &::-ms-search-cancel-button,
+    &::-ms-search-decoration,
+    &::-ms-search-results-button,
+    &::-ms-search-results-decoration {
+      #csspl-appearance > .none;
+    }
+    &::-o-search-cancel-button,
+    &::-o-search-decoration,
+    &::-o-search-results-button,
+    &::-o-search-results-decoration {
+      #csspl-appearance > .none;
+    }
+    &::search-cancel-button,
+    &::search-decoration,
+    &::search-results-button,
+    &::search-results-decoration {
+      #csspl-appearance > .none;
+    }
+  }
+}
+
+// shadow ---------------------------------------------------------------------
+
+.csspl-shadow(@val:none){
+  -webkit-box-shadow:@val;
+  -moz-box-shadow:@val;
+  -ms-box-shadow:@val;
+  -o-box-shadow:@val;
+  box-shadow:@val;
+}
+
+#csspl-shadow{
+  .none(){
+    .csspl-shadow();
+  }
+  .generic(@val){
+    .csspl-shadow(@val);
+  }
+  .tiny(){
+    .csspl-shadow(0 0 3px rgba(85,85,85,.3));
+  }
+  .middle() {
+      .csspl-shadow(0 0 10px rgba(0,0,0,.2));
+  }
+}
+
+// border-radius --------------------------------------------------------------
+
+.csspl-border-radius(@val:0) {
+  -webkit-border-radius:@val;
+  -moz-border-radius:@val;
+  -ms-border-radius:@val;
+  -o-border-radius:@val;
+  border-radius:@val;
+}
+.csspl-border-top-left-radius(@val:0){
+  -webkit-border-top-left-radius:@val;
+  -moz-border-radius-topleft:@val;
+  -ms-border-radius-topleft:@val;
+  -o-border-radius-topleft:@val;
+  border-top-left-radius:@val;
+}
+.csspl-border-top-right-radius(@val:0){
+  -webkit-border-top-right-radius:@val;
+  -moz-border-radius-topright:@val;
+  -ms-border-radius-topright:@val;
+  -o-border-radius-topright:@val;
+  border-top-right-radius:@val;
+}
+.csspl-border-bottom-left-radius(@val:0){
+  -webkit-border-bottom-left-radius:@val;
+  -moz-border-radius-bottomleft:@val;
+  -ms-border-radius-bottomleft:@val;
+  -o-border-radius-bottomleft:@val;
+  border-bottom-left-radius:@val;
+}
+.csspl-border-bottom-right-radius(@val:0){
+  -webkit-border-bottom-right-radius:@val;
+  -moz-border-radius-bottomright:@val;
+  -ms-border-radius-bottomright:@val;
+  -o-border-radius-bottomright:@val;
+  border-bottom-right-radius:@val;
+}
+
+#csspl-border-radius {
+  .none(){
+    .csspl-border-radius();
+  }
+  .generic(@val){
+    .csspl-border-radius(@val);
+  }
+  .small(){
+    .csspl-border-radius(2px);
+  }
+  .middle(){
+    .csspl-border-radius(5px);
+  }
+  .top(@val){
+    .csspl-border-top-left-radius(@val);
+    .csspl-border-top-right-radius(@val);
+    .left(@val){
+        .csspl-border-top-left-radius(@val);
+    }
+    .right(@val){
+        .csspl-border-top-right-radius(@val);
+    }
+  }
+  .bottom(@val){
+    .csspl-border-bottom-left-radius(@val);
+    .csspl-border-bottom-right-radius(@val);
+    .left(@val){
+        .csspl-border-bottom-left-radius(@val);
+    }
+    .right(@val){
+        .csspl-border-bottom-right-radius(@val);
+    }
+  }
+  .right(@val){
+    .csspl-border-top-right-radius(@val);
+    .csspl-border-bottom-right-radius(@val);
+  }
+  .left(@val){
+    .csspl-border-top-left-radius(@val);
+    .csspl-border-bottom-left-radius(@val);
+  }
+}
+
+.csspl-border-image-linear-gradient(@val){
+    -webkit-border-image: ~`"-webkit-linear-gradient(" + "@{val}" + ") 1 100%"`;
+    -moz-border-image: ~`"-moz-linear-gradient(" + "@{val}" + ") 1 100%"`;
+    -ms-border-image: ~`"-ms-linear-gradient(" + "@{val}" + ") 1 100%"`;
+    -o-border-image: ~`"-o-linear-gradient(" + "@{val}" + ") 1 100%"`;
+    border-image: ~`"linear-gradient(" + "@{val}" + ") 1 100%"`;
+}
+
+#csspl-border-image{
+  .linklist(){
+      .csspl-border-image-linear-gradient(~"left, rgba(229,229,229,.1), rgba(229,229,229,.5) 25%, rgba(229,229,229,1) 50%, rgba(229,229,229,.5) 75%, rgba(229,229,229,.1)");
+  }
+  .vertical(){
+      .csspl-border-image-linear-gradient(~"top, rgba(229,229,229,.1), rgba(229,229,229,.5) 25%, rgba(229,229,229,1) 50%, rgba(229,229,229,.5) 75%, rgba(229,229,229,.1)");
+  }
+}
+
+// gradient -------------------------------------------------------------------
+
+.csspl-linear-gradient(@val) {
+  background:-webkit-linear-gradient(@val); 
+  background:-moz-linear-gradient(@val);
+  background:-ms-linear-gradient(@val);
+  background:-o-linear-gradient(@val);
+  background:linear-gradient(@val); 
+}
+
+.csspl-gradient-radial(@val1,@val2) {
+  background: mix(@val1,@val2,50%);
+  background: -webkit-radial-gradient(@val1, @val2);
+  background: -moz-radial-gradient(50% 50% 0deg,circle cover, @val1, @val1, @val2 100%);
+  background: -o-gradient(radial, 50% 50%, 0, 71% 19%, 203, from(@val1), color-stop(0.9, @val1), to(@val2));
+  background: -ms-gradient(radial, 50% 50%, 0, 71% 19%, 203, from(@val1), color-stop(0.9, @val1), to(@val2));
+  background: gradient(radial, 50% 50%, 0, 71% 19%, 203, from(@val1), color-stop(0.9, @val1), to(@val2));
+}
+
+#csspl-gradient {
+  .linear(@val1,@val2){
+    background: mix(@val1,@val2,50%);
+    .csspl-linear-gradient(~"top, @{val1}, @{val2}");
+  }
+  .diagonal(@val1,@val2){
+    background: mix(@val1,@val2,50%);
+    .csspl-linear-diagonal(~"left top, @{val1}, @{val2} 35%, @{val2} 75%, @{val1}");
+  }
+  .radial(@val1,@val2){
+    background: mix(@val1,@val2,50%);
+    .csspl-gradient-radial(@val1,@val2);
+  }
+}
+
+// filter ---------------------------------------------------------------------
+
+.csspl-filter(@val:none){
+    -webkit-filter: @val;
+    -moz-filter: @val;
+    -ms-filter: @val;
+    -o-filter: @val;
+    filter: @val;
+}
+
+#csspl-filter{
+  .no(){
+      .csspl-filter();
+  }
+  .generic(@val){
+      .csspl-filter(@val);
+  }
+}
+
+// backface -------------------------------------------------------------------
+
+.ysl-backface(@val:visble) {
+  -webkit-backface-visibility: @val;
+  -moz-backface-visibility: @val;
+  -ms-backface-visibility: @val;
+  -o-backface-visibility: @val;
+  backface-visibility: @val;
+}
+
+#ysl-backface {
+  .hidden(){
+    .ysl-backface(hidden);
+  }
+  .visible(){
+    .ysl-backface();
+  }
+}
+
+
+// transform ------------------------------------------------------------------
+
+.csspl-transform(@val:scale(0)) {
+  -webkit-transform: @val;
+  -moz-transform: @val;
+  -ms-transform: @val;
+  -o-transform: @val;
+  transform: @val;
+}
+
+.csspl-transform-origin(@val:50%){
+    -webkit-transform-origin: @val;
+    -moz-transform-origin: @val;
+    -ms-transform-origin: @val;
+    -o-transform-origin: @val;
+    transform-origin: @val;
+}
+
+#csspl-transform {
+  .enableGPU(){
+    -webkit-transform: translateZ(0);
+  }
+  .scale0(){
+    .csspl-transform();
+  }
+  .scale1(){
+    .csspl-transform(scale(1));
+  }
+  .generic(@val){
+    .csspl-transform(@val);
+  }
+}
+
+#csspl-transform-origin{
+  .generic(@val){
+    .csspl-transform-origin(@val);
+  }
+}
+
+.csspl-transform-style(@val:flat) {
+    -webkit-transform-style: @val;
+    -moz-transform-style: @val;
+    -o-transform-style: @val;
+    -ms-transform-style: @val;
+    transform-style: @val;
+}
+
+#csspl-transform-style {
+  .no(){
+      .csspl-transform-style();
+  }
+  .preserve3d(){
+    .csspl-transform-style(~"preserve-3d");
+  }
+}
+
+// transition -----------------------------------------------------------------
+
+.csspl-transition(@val1:0s,@val2:all,@val3:ease-out) {
+  @style:@val2 @val1 @val3;
+  -webkit-transition: @style;
+  -moz-transition: @style;
+  -ms-transition: @style;
+  -o-transition: @style;
+  transition: @style;
+}
+.csspl-transition-colors(@val1:0s,@val2:ease-out) {
+    -webkit-transition: background-color @val1 @val2, color @val1 @val2, border-color @val1 @val2;
+    -moz-transition: background-color @val1 @val2, color @val1 @val2, border-color @val1 @val2;
+    -ms-transition: background-color @val1 @val2, color @val1 @val2, border-color @val1 @val2;
+    -o-transition: background-color @val1 @val2, color @val1 @val2, border-color @val1 @val2;
+    transition: background-color @val1 @val2, color @val1 @val2, border-color @val1 @val2;
+}
+
+#csspl-transition{
+  .no(){
+    .csspl-transition();
+  }
+  .scarf(@val1){
+    .csspl-transition-scarf(@val1);
+  }
+  .generic(@val1,@val2,@val3){
+    .csspl-transition(@val1,@val2,@val3);
+  }
+  .short(){
+    .csspl-transition(.2s);
+  }
+  .middle(){
+    .csspl-transition(.5s);
+  }
+  .long(){
+    .csspl-transition(1s);
+  }
+  .fade(){
+    .csspl-transition(.5s,opacity);
+  }
+  .backgroundcolor(){
+    .csspl-transition(.2s,background-color);
+  }
+  .colors-short(){
+    .csspl-transition-colors(.2s);
+  }
+  .colors-middle(){
+    .csspl-transition-colors(.8s);
+  }
+}
+
+// animation ------------------------------------------------------------------
+
+.csspl-animation(@val:none) {
+    -webkit-animation: @val;
+    -moz-animation: @val;
+    -ms-animation: @val;
+    -o-animation: @val;
+    animation: @val;
+}
+
+#csspl-animation{
+    .no(){
+        .csspl-animation();
+    }
+    .generic(@val){
+        .csspl-animation(@val);
+    }
+    .showProgress(){
+        .csspl-animation(showProgress 2s);
+    }
+    .showOverlay(){
+        .csspl-animation(showOverlay .75s forwards);
+    }
+    .hideOverlay(){
+        .csspl-animation(hideOverlay .5s forwards);
+    }
+    .showShim(){
+        .csspl-animation(showShim .75s forwards);
+    }
+    .hideShim(){
+        .csspl-animation(hideShim .5s forwards);
+    }
+}
+
+// perspective ----------------------------------------------------------------
+
+.csspl-perspective(@val:0){
+    -webkit-perspective: @val;
+    -moz-perspective: @val;
+    -ms-perspective: @val;
+    -o-perspective: @val;
+    perspective: @val;
+}
+
+#csspl-perspective{
+  .no(){
+    .csspl-perspective();
+  }
+  .generic(@val){
+    .csspl-perspective(@val);
+  }
+}
+
+.csspl-perspective-origin(@val:50%){
+    -webkit-perspective-origin: @val;
+    -moz-perspective-origin: @val;
+    -ms-perspective-origin: @val;
+    -o-perspective-origin: @val;
+    perspective-origin: @val;
+}
+
+#csspl-perspective-origin{
+  .generic(@val){
+    .csspl-perspective-origin(@val);
+  }
+}
+
+// reflection -----------------------------------------------------------------
+
+.csspl-reflection(@val) {
+    -webkit-box-reflect: @val;
+    -moz-box-reflect: @val;
+    -ms-box-reflect: @val;
+    -o-box-reflect: @val;
+    box-reflect: @val;
+}
+
+#csspl-reflection{
+  .generic(@val){
+      .csspl-reflection(@val);
+  }
+}
+
+// touch ----------------------------------------------------------------------
+
+.csspl-touch(@val:none) {
+    -webkit-user-select: @val;
+    -moz-user-select: @val;
+    -ms-user-select: @val;
+    -o-user-select: @val;
+    user-select: @val;
+}
+
+#csspl-touch{
+   .select-none(){
+      .csspl-touch();
+   }
+}
+
+// flexbox --------------------------------------------------------------------
+
+.csspl-flexbox-boxflex(@val:0){
+  -webkit-box-flex: @val;
+  -moz-box-flex: ~`(@{val} == 0) ? "none" : @{val}`;
+  -ms-box-flex: @val;
+  -o-box-flex: @val;
+  box-flex: @val;
+}
+.csspl-flexbox-pack(@val) {
+    -webkit-box-pack:@val;
+    -moz-box-pack:@val;
+    -o-box-pack:@val;
+    -ms-box-pack:@val;
+    box-pack:@val;
+}
+.csspl-flexbox-align(@val) {
+    -webkit-box-align:@val;
+    -moz-box-align:@val;
+    -o-box-align:@val;
+    -ms-box-align:@val;
+    box-align:@val;
+}
+.csspl-flexbox-orient(@val) {
+    -webkit-box-orient: @val;
+    -moz-box-orient: @val;
+    -o-box-orient: @val;
+    -ms-box-orient: @val;
+    box-orient: @val;
+}
+
+#csspl-flexbox {
+  .display(){
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -o-box;
+    display: box;
+  }
+  .box-flex{
+    .none(){
+      .csspl-flexbox-boxflex();
+    }
+    .one(){
+      .csspl-flexbox-boxflex(1);
+    }
+    .generic(@val){
+        .csspl-flexbox-boxflex(@val);
+    }
+  }
+  .pack {
+    .start(){
+        .csspl-flexbox-pack(start);
+    }
+    .justify(){
+        .csspl-flexbox-pack(justify);
+    }
+    .center(){
+        .csspl-flexbox-pack(center);
+    }
+    .end(){
+        .csspl-flexbox-pack(end);
+    }
+  }
+  .align {
+    .end(){
+      .csspl-flexbox-align(end);
+    }
+  }
+  .orient{
+    .vertical(){
+      .csspl-flexbox-orient(vertical);
+    }
+  }
+}
+
+// cursors --------------------------------------------------------------------
+
+.cursor-zoom(@val:in) {
+    cursor: ~`"-webkit-zoom-" + "@{val}"`;
+    cursor: ~`"-moz-zoom-" + "@{val}"`;
+    cursor: ~`"-ms-zoom-" + "@{val}"`;
+    cursor: ~`"-o-zoom-" + "@{val}"`;
+    cursor: zoom-in;
+}
+
+#csspl-cursors {
+    .zoom-in(){
+        .cursor-zoom()
+    }
+    .zoom-out(){
+        .cursor-zoom(out)
+    }
+}
+
+// font -----------------------------------------------------------------------
+
+.csspl-font(@val) {
+  font-family:@val;
+}
+
+#csspl-font {
+  .Arial(){
+    .csspl-font(~'Arial,Verdana,sans-serif');
+  }
+}
+
+// hyphenation ----------------------------------------------------------------
+ 
+.csspl-hyphenation(@val) {
+    -webkit-hyphens: @val;
+    -moz-hyphens: @val;
+    -ms-hyphens: @val;
+    -o-hyphens: @val;
+    hyphens: @val;
+}
+ 
+#csspl-hyphenation{
+    .auto(){
+        .csspl-hyphenation(auto);
+    }
+    .none(){
+        .csspl-hyphenation(none);
+    }
+}
+
+// placeholder color ----------------------------------------------------------
+
+.csspl-placeholder(@val) {
+  &::-webkit-input-placeholder {
+    color: @val;
+  }
+  &:-moz-placeholder {
+    color: @val;
+  }
+  &::-ms-placeholder {
+    color: @val;
+  }
+  &::-o-placeholder {
+    color: @val;
+  }
+  &::placeholder {
+    color: @val;
+  }
+}
+
+// tools ----------------------------------------------------------------------
+
+#csspl-tools{
+  .ir() { //image-replacement (http://nicolasgallagher.com/another-css-image-replacement-technique/)
+    font: 0/0 a; 
+    text-shadow: none; 
+    color: transparent;
+  }
+  
+  .ir() { //image-replacement (http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/)
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .bg(@val){ //use: #csspl-tools > .bg("img.png");
+    background: transparent url("@{csspl-image-path}@{val}") no-repeat 0 0;
+  }
+}

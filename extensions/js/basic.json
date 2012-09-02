@@ -1,0 +1,8 @@
+[
+  "extensions/js/ext/json2.js",
+  "extensions/js/ext/modernizr-2.6.0.js",
+  "extensions/js/ext/jquery-1.7.2.js",
+  "extensions/js/ext/lodash-0.4.2.js",
+  "extensions/js/csspl/csspl.js",
+  "extensions/js/csspl/helloworld.js"
+]
