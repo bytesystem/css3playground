@@ -6,7 +6,7 @@
     padding: 75px 0 0;
     width: 360px;
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
     #csspl-font > .DinNxtReg;
     background: -webkit-linear-gradient(63deg, #151515 5px, transparent 5px) 0 5px, -webkit-linear-gradient(-117deg, #151515 5px, transparent 5px) 10px 0px, -webkit-linear-gradient(63deg, #222 5px, transparent 5px) 0px 10px, -webkit-linear-gradient(-117deg, #222 5px, transparent 5px) 10px 5px, -webkit-linear-gradient(0deg, #1B1B1B 10px, transparent 10px), -webkit-linear-gradient(#1D1D1D 25%, #1A1A1A 25%, #1A1A1A 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
     background-color: #131313;
@@ -24,6 +24,7 @@
         #csspl-font > .DinNxtBold;
     }
     li{
+        position: relative;
         width: 350px;
         height: 60px;
         overflow: hidden;
@@ -71,6 +72,14 @@
                 font-size: 19px;
             }
         }
+        &.active{
+            &:hover{
+                .support{
+                    opacity: 1;
+                    pointer-events:auto;
+                }
+            }
+        }
         .wrap{
             text-align: left;
             display: block;
@@ -110,7 +119,74 @@
             color: #666;
             #csspl-transition > .generic(300ms, all, linear);
         }
+        .support{
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 60px;
+            width: 360px;
+            background: @csspl-black;
+            pointer-events: none;
+            cursor: auto;
+            #csspl-transition > .short;
+            span{
+                float: left;
+                display: block;
+                height: 31px;
+                width: 60px;
+                margin: 4px 8px 0 0;
+                padding-top: 24px;
+                color: @csspl-white;
+                font-size: 30px;
+                line-height: normal;
+                text-align: right;
+                text-shadow: 3px 3px 5px @csspl-black;
+                background: url("../../images/browser_logos-64.png") no-repeat;
+                opacity: 1;
+                #csspl-transition > .short;
+                #csspl-font > .DinNxtBold;
+                &.no{
+                    opacity: .2;
+                    cursor: not-allowed;
+                }
+                &.chrome{
+                    margin-left: 9px;
+                }
+                &.safari{
+                    background-position: -177px 0;
+                }
+                &.firefox{
+                    background-position: -61px 0;
+                }
+                &.opera{
+                    background-position: -120px 0;
+                }
+                &.ie{
+                    background-position: -234px 0;
+                }
+            }
+        }
     }
+    
 }
 
-
+.fullscreen{
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    height: 42px;
+    width: 335px;
+    font-size: 39px;
+    padding: 33px 0 0 25px;
+    color: @csspl-white;
+    text-transform: uppercase;
+    #csspl-font > .DinNxtBold;
+    #csspl-transition > .middle;
+    &:hover{
+        opacity: 1;
+    }
+}

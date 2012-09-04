@@ -5,7 +5,6 @@ html {
 }
 
 body{
-    height: 100%;
     margin:0;
     padding:@csspl-headerHeight 0 0;
     font-size:@csspl-base-fontsize;
@@ -14,13 +13,26 @@ body{
     background:@csspl-white;
     //text-rendering:optimizeLegibility; /* may cause render issues */
     overflow-y: scroll;
-    background: -webkit-linear-gradient(63deg, #151515 5px, transparent 5px) 0 5px, -webkit-linear-gradient(-117deg, #151515 5px, transparent 5px) 10px 0px, -webkit-linear-gradient(63deg, #222 5px, transparent 5px) 0px 10px, -webkit-linear-gradient(-117deg, #222 5px, transparent 5px) 10px 5px, -webkit-linear-gradient(0deg, #1B1B1B 10px, transparent 10px), -webkit-linear-gradient(#1D1D1D 25%, #1A1A1A 25%, #1A1A1A 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-    background-color: #131313;
-    background-size: 20px 20px;
     *+html & {
         overflow-y: auto; //fix IE7 double scrollbar
     }
 }
+
+html,
+body,
+.fullscreen{
+    background: -webkit-linear-gradient(63deg, #151515 5px, transparent 5px) 0 5px, -webkit-linear-gradient(-117deg, #151515 5px, transparent 5px) 10px 0px, -webkit-linear-gradient(63deg, #222 5px, transparent 5px) 0px 10px, -webkit-linear-gradient(-117deg, #222 5px, transparent 5px) 10px 5px, -webkit-linear-gradient(0deg, #1B1B1B 10px, transparent 10px), -webkit-linear-gradient(#1D1D1D 25%, #1A1A1A 25%, #1A1A1A 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+}
+
+html,
+body,
+div,
+iframe{
+    height: 100%;
+}
+
 a{
     text-decoration: none;
     color: inherit;
